@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0CE14D8C2C5488380052EF15 /* WarmUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE14D8B2C5488380052EF15 /* WarmUpView.swift */; };
+		D971EAE12C54D02C00546DC1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971EAE02C54D02C00546DC1 /* OnboardingView.swift */; };
 		D9FC26D62C4B63D100DED8CD /* Project2_4amApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FC26D52C4B63D100DED8CD /* Project2_4amApp.swift */; };
 		D9FC26D82C4B63D100DED8CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FC26D72C4B63D100DED8CD /* ContentView.swift */; };
 		D9FC26DA2C4B63D200DED8CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9FC26D92C4B63D200DED8CD /* Assets.xcassets */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		0CE14D8B2C5488380052EF15 /* WarmUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpView.swift; sourceTree = "<group>"; };
+		D971EAE02C54D02C00546DC1 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		D9FC26D22C4B63D100DED8CD /* Project2_4am.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project2_4am.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FC26D52C4B63D100DED8CD /* Project2_4amApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project2_4amApp.swift; sourceTree = "<group>"; };
 		D9FC26D72C4B63D100DED8CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			children = (
 				D9FC26D52C4B63D100DED8CD /* Project2_4amApp.swift */,
 				D9FC26D72C4B63D100DED8CD /* ContentView.swift */,
+				D971EAE02C54D02C00546DC1 /* OnboardingView.swift */,
 				0CE14D8B2C5488380052EF15 /* WarmUpView.swift */,
 				E3B9863E2C5498FD00EA734C /* RewardsView.swift */,
 				D9FC26D92C4B63D200DED8CD /* Assets.xcassets */,
@@ -266,6 +269,7 @@
 				0CE14D8C2C5488380052EF15 /* WarmUpView.swift in Sources */,
 				D9FC26D82C4B63D100DED8CD /* ContentView.swift in Sources */,
 				D9FC26D62C4B63D100DED8CD /* Project2_4amApp.swift in Sources */,
+				D971EAE12C54D02C00546DC1 /* OnboardingView.swift in Sources */,
 				E3B9863F2C5498FD00EA734C /* RewardsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
