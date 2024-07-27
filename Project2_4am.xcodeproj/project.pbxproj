@@ -15,6 +15,7 @@
 		D9FC26E72C4B63D200DED8CD /* Project2_4amTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FC26E62C4B63D200DED8CD /* Project2_4amTests.swift */; };
 		D9FC26F12C4B63D200DED8CD /* Project2_4amUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FC26F02C4B63D200DED8CD /* Project2_4amUITests.swift */; };
 		D9FC26F32C4B63D200DED8CD /* Project2_4amUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FC26F22C4B63D200DED8CD /* Project2_4amUITestsLaunchTests.swift */; };
+		E3B9863F2C5498FD00EA734C /* RewardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9863E2C5498FD00EA734C /* RewardsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		D9FC26EC2C4B63D200DED8CD /* Project2_4amUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Project2_4amUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FC26F02C4B63D200DED8CD /* Project2_4amUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project2_4amUITests.swift; sourceTree = "<group>"; };
 		D9FC26F22C4B63D200DED8CD /* Project2_4amUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project2_4amUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		E3B9863E2C5498FD00EA734C /* RewardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				D9FC26D52C4B63D100DED8CD /* Project2_4amApp.swift */,
 				D9FC26D72C4B63D100DED8CD /* ContentView.swift */,
 				0CE14D8B2C5488380052EF15 /* WarmUpView.swift */,
+				E3B9863E2C5498FD00EA734C /* RewardsView.swift */,
 				D9FC26D92C4B63D200DED8CD /* Assets.xcassets */,
 				D9FC26DB2C4B63D200DED8CD /* Preview Content */,
 			);
@@ -263,6 +266,7 @@
 				0CE14D8C2C5488380052EF15 /* WarmUpView.swift in Sources */,
 				D9FC26D82C4B63D100DED8CD /* ContentView.swift in Sources */,
 				D9FC26D62C4B63D100DED8CD /* Project2_4amApp.swift in Sources */,
+				E3B9863F2C5498FD00EA734C /* RewardsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
