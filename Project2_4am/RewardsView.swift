@@ -12,77 +12,61 @@ struct RewardsView: View {
     var nextRewardPoints: Int = 750
     
     var body: some View {
-        VStack(spacing: 20) {
-            Text("Rewards!")
-                .font(.largeTitle)
-                .bold()
-            
-            HStack {
-                VStack(alignment: .leading) {
-                    Text("Current Points")
-                    Text("Next Reward Points")
-                }
-                Spacer()
-                VStack(alignment: .trailing) {
-                    Text("\(currentPoints)")
-                    Text("\(nextRewardPoints)")
-                }
-            }
-            .padding()
-            .background(Color(UIColor.systemGray6))
-            .cornerRadius(10)
-            
-            List {
-                RewardRow(points: 250, reward: "$2", redeemed: true)
-                RewardRow(points: 500, reward: "$2.50", redeemNow: true)
-                RewardRow(points: 750, reward: "$3.50")
-                RewardRow(points: 1000, reward: "$5")
-            }
-            .listStyle(PlainListStyle())
-            
-            Button(action: {
-                // Action for redeeming all vouchers
-            }) {
-                Text("Redeem all remaining Vouchers")
-                    .font(.headline)
+        NavigationStack{
+            VStack {
+                List {
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Current Points")
+                            Text("Next Reward Points")
+                        }
+                        Spacer()
+                        VStack(alignment: .trailing) {
+                            Text("\(currentPoints)")
+                            Text("\(nextRewardPoints)")
+                        }
+                    }
                     .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(Color.blue)
-                    .foregroundColor(.white)
                     .cornerRadius(10)
+                    
+                    Section{
+                        HStack {
+                            Text("200 pts")
+                            Spacer()
+                            Text("Voucher of $2 (redemmed)")
+                        }
+                        HStack {
+                            Text("500 pts")
+                            Spacer()
+                            Text("Voucher of $2.50 (not redemmed)")
+                        }
+                        HStack {
+                            Text("750 pts")
+                            Spacer()
+                            Text("Voucher of $3.50 (locked)")
+                        }
+                        HStack {
+                            Text("10 000 pts")
+                            Spacer()
+                            Text("Voucher of $5 (locked)")
+                        }
+                    }
+                    .navigationTitle("Rewards!")
+                    
+                    Section{
+                        Button {
+                            //code
+                        } label: {
+                            Text("Redeem all avaliable vouchers")
+                        }
+
+                    }
+                    
+                }
             }
-            .padding()
-            
-            Spacer()
         }
-        .padding()
-        .navigationBarHidden(true)
     }
 }
-
-struct RewardRow: View {
-    var points: Int
-    var reward: String
-    var redeemed: Bool = false
-    var redeemNow: Bool = false
-    
-    var body: some View {
-        HStack {
-            Text("\(points) pts")
-            Spacer()
-            Text("Voucher of \(reward)")
-            if redeemed {
-                Text("(redeemed)")
-                    .foregroundColor(.gray)
-            } else if redeemNow {
-                Text("(redeem!)")
-                    .foregroundColor(.blue)
-            }
-        }
-        .padding(.vertical, 10)
-    }
-}
-
 struct RewardsView_Previews: PreviewProvider {
     static var previews: some View {
         RewardsView()
