@@ -183,9 +183,12 @@ struct OnboardingView: View {
                         Text("Submit")
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color.green)
-                            .foregroundColor(.black)
+                            .background(Color.gray.opacity(0.2))
+                            .foregroundColor(.blue)
                             .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle (cornerRadius: 10)
+                                    .stroke(Color.gray,style: StrokeStyle(lineWidth:1)).opacity(0.3))
                     }
                     .padding(.horizontal, 30)
                     .padding(.top,30)
@@ -204,6 +207,9 @@ struct OnboardingView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
+                            .overlay(
+                                RoundedRectangle (cornerRadius: 10)
+                                    .stroke(Color.gray,style: StrokeStyle(lineWidth:1)).opacity(0.3))
                     }
                     .padding(.horizontal, 30)
                     .padding(.top, 20)
