@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CE14D8C2C5488380052EF15 /* WarmUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE14D8B2C5488380052EF15 /* WarmUpView.swift */; };
 		D9FC26D62C4B63D100DED8CD /* Project2_4amApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FC26D52C4B63D100DED8CD /* Project2_4amApp.swift */; };
 		D9FC26D82C4B63D100DED8CD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FC26D72C4B63D100DED8CD /* ContentView.swift */; };
 		D9FC26DA2C4B63D200DED8CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9FC26D92C4B63D200DED8CD /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0CE14D8B2C5488380052EF15 /* WarmUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpView.swift; sourceTree = "<group>"; };
 		D9FC26D22C4B63D100DED8CD /* Project2_4am.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Project2_4am.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FC26D52C4B63D100DED8CD /* Project2_4amApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project2_4amApp.swift; sourceTree = "<group>"; };
 		D9FC26D72C4B63D100DED8CD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			children = (
 				D9FC26D52C4B63D100DED8CD /* Project2_4amApp.swift */,
 				D9FC26D72C4B63D100DED8CD /* ContentView.swift */,
+				0CE14D8B2C5488380052EF15 /* WarmUpView.swift */,
 				D9FC26D92C4B63D200DED8CD /* Assets.xcassets */,
 				D9FC26DB2C4B63D200DED8CD /* Preview Content */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CE14D8C2C5488380052EF15 /* WarmUpView.swift in Sources */,
 				D9FC26D82C4B63D100DED8CD /* ContentView.swift in Sources */,
 				D9FC26D62C4B63D100DED8CD /* Project2_4amApp.swift in Sources */,
 			);

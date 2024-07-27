@@ -9,7 +9,27 @@ import SwiftUI
 
 struct WarmUpView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        NavigationStack{
+            ZStack{
+                List {
+                    Section(header: Text(" "), footer: Text("Do warm ups before you start exercising")) {
+                        Text("Lunges            Lunges 5 times each leg")
+                        
+                        Text("Sidesteps        Step to each side 20 times")
+                        Text("Squats             Bend your legs 15 times")
+                    }
+                }        .navigationTitle("Warm Up")
+                
+                /*                NavigationLink(destination: ) {
+                 Text("Start Activity")
+                 .padding()
+                 .background(Color.blue)
+                 .foregroundColor(.white)
+                 .cornerRadius(8)
+                 } */
+            }
+        }
     }
 }
 
