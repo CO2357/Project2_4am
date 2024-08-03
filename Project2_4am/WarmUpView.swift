@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WarmUpView: View {
+    
+    @State private var done = false
+    
     var body: some View {
         
         NavigationStack{
@@ -20,18 +23,23 @@ struct WarmUpView: View {
                         Text("Squats             Bend your legs 15 times")
                     }
                 }        .navigationTitle("Warm Up")
-                
-                /*                NavigationLink(destination: ) {
-                 Text("Start Activity")
-                 .padding()
-                 .background(Color.blue)
-                 .foregroundColor(.white)
-                 .cornerRadius(8)
-                 } */
+
+                NavigationLink(isActive: $done) {
+                    Text("Placeholder")
+                } label: {
+                    Text("Start Activity")
+                        .padding()
+                        .background(Color(.blue))
+                        .foregroundColor(.white)
+                        .cornerRadius(10)
+                }
+
+                    
+                }
             }
         }
     }
-}
+
 
 #Preview {
     WarmUpView()
