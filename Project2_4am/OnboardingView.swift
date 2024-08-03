@@ -14,29 +14,28 @@ struct OnboardingView: View {
     @State private var activityLevel: String = ""
     @State private var age: String = ""
     @State private var showAgeDisclaimer: Bool = false
+    @State private var selectedGender = ""
+        let genderOptions = ["Male", "Female", "Non-Binary"]
+    @State private var selectedActivtyLevel = ""
+        let activityLevelOptions = ["Light", "Moderate", "Intensive"]
+    @State private var selectedAge = ""
+        let ageOptions = ["50-55", "56-60", "61-65", "66-70", "71-75", "76-80", "81-85", "86-90", "90+"]
     
     let textLimit = 6
-    let genderOptions = ["Male", "Female", "Non-Binary"]
-    let activityLevelOptions = ["Light", "Moderate", "Intensive"]
-    let ageOptions = ["50-55", "56-60", "61-65", "66-70", "71-75", "76-80", "81-85", "86-90", "90+"]
+    
     
     var body: some View {
-        
+
         NavigationStack{
-                VStack{
-                    
-                    Text("Please enter your personal information:")
-                        .font(.subheadline)
-                        .padding(.top, 20)
-                    
-                    VStack(alignment: .leading, spacing: 15) {
-                        HStack {
+            
+                List{
+                    Section{
+                        HStack{
                             TextField("Height", text: $height)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .keyboardType(.decimalPad)
                                 .onChange(of: height) {
-                                        self.height = String(height.prefix(textLimit))
-                                    }
+                                    self.height = String(height.prefix(textLimit))
+                                }
                                 .onChange(of: height, { oldValue, newValue in
                                     if newValue != "" && Double(newValue) == nil {
                                         height = oldValue
@@ -45,125 +44,41 @@ struct OnboardingView: View {
                                 .lineLimit(1)
                             
                             Text("cm")
-                                .padding(.leading, 5)
                         }
                         
-                        HStack {
+                        HStack{
                             TextField("Weight", text: $weight)
-                                .textFieldStyle(RoundedBorderTextFieldStyle())
                                 .keyboardType(.decimalPad)
                                 .onChange(of: weight) {
-                                        self.weight = String(weight.prefix(textLimit))
-                                    }
-                                .onChange(of: height, { oldValue, newValue in
+                                    self.weight = String(weight.prefix(textLimit))
+                                }
+                                .onChange(of: weight, { oldValue, newValue in
                                     if newValue != "" && Double(newValue) == nil {
-                                        height = oldValue
+                                        weight = oldValue
                                     }
                                 })
                                 .lineLimit(1)
                             
                             Text("kg")
-                                .padding(.leading, 10)
                         }
-                        
-                        DisclosureGroup("Gender: \(gender.isEmpty ? "" : gender)") {
-                            ForEach(genderOptions, id: \.self) { option in
-                                Text(option)
-                                    .padding(.vertical, 5)
-                                    .contentShape(Rectangle())
-                                    .onTapGesture {
-                                        gender = option
-                                    }
-                                    .frame (maxWidth: 10000)
-                                    .padding(.vertical, 3)
-                                    .padding(.horizontal,10)
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(
-                                        cornerRadius: 5))
-                                    .overlay(
-                                        RoundedRectangle (cornerRadius: 5)
-                                            .stroke(Color.gray,style: StrokeStyle(lineWidth:1)).opacity(0.3))
+                        Picker("Gender", selection: $selectedGender) {
+                            ForEach(genderOptions, id: \.self) {
+                                Text($0)
                             }
-                            .padding(.bottom,5)
                         }
-                        .frame (maxWidth: 10000)
-                        .padding(.vertical, 4)
-                        .padding(.horizontal,10)
-                        .background(.white)
-                        .clipShape(RoundedRectangle(
-                            cornerRadius: 6))
-                        .overlay(
-                            RoundedRectangle (cornerRadius: 6)
-                                .stroke(Color.gray,style: StrokeStyle(lineWidth:1)).opacity(0.3))
-                        
-                        
-                        
-                        
-                        .foregroundColor(.black)
-                        
-                        DisclosureGroup("Activity level: \(activityLevel.isEmpty ? "" : activityLevel)") {
-                            ForEach(activityLevelOptions, id: \.self) { option in
-                                Text(option)
-                                    .padding(.vertical, 5)
-                                    .contentShape(Rectangle())
-                                    .onTapGesture {
-                                        activityLevel = option
-                                    }
-                                    .frame (maxWidth: 10000)
-                                    .padding(.vertical, 3)
-                                    .padding(.horizontal,10)
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(
-                                        cornerRadius: 5))
-                                    .overlay(
-                                        RoundedRectangle (cornerRadius: 5)
-                                            .stroke(Color.gray,style: StrokeStyle(lineWidth:1)).opacity(0.3))
+                        Picker("Activity Level", selection: $selectedActivtyLevel) {
+                            ForEach(activityLevelOptions, id: \.self) {
+                                Text($0)
                             }
-                            .padding(.bottom,5)
                         }
-                        .frame (maxWidth: 10000)
-                        .padding(.vertical, 4)
-                        .padding(.horizontal,10)
-                        .background(.white)
-                        .clipShape(RoundedRectangle(
-                            cornerRadius: 6))
-                        .overlay(
-                            RoundedRectangle (cornerRadius: 6)
-                                .stroke(Color.gray,style: StrokeStyle(lineWidth:1)).opacity(0.3))
-                        .foregroundColor(.black)
-                        
-                        DisclosureGroup("Age: \(age.isEmpty ? "" : age)") {
-                            ForEach(ageOptions, id: \.self) { option in
-                                Text(option)
-                                    .padding(.vertical, 5)
-                                    .contentShape(Rectangle())
-                                    .onTapGesture {
-                                        age = option
-                                        showAgeDisclaimer = (option == "90+")
-                                    }
-                                    .frame (maxWidth: 10000)
-                                    .padding(.vertical, 3)
-                                    .padding(.horizontal,10)
-                                    .background(.white)
-                                    .clipShape(RoundedRectangle(
-                                        cornerRadius: 5))
-                                    .overlay(
-                                        RoundedRectangle (cornerRadius: 5)
-                                            .stroke(Color.gray,style: StrokeStyle(lineWidth:1)).opacity(0.3))
+                        Picker("Age", selection: $selectedAge) {
+                            ForEach(ageOptions, id: \.self) {
+                                Text($0)
                             }
-                            .padding(.bottom, 5)
                         }
-                        .frame (maxWidth: 10000)
-                        .padding(.vertical, 4)
-                        .padding(.horizontal,10)
-                        .background(.white)
-                        .clipShape(RoundedRectangle(
-                            cornerRadius: 6))
-                        .overlay(
-                            RoundedRectangle (cornerRadius: 6)
-                                .stroke(Color.gray,style: StrokeStyle(lineWidth:1)).opacity(0.3))
-                        .foregroundColor(.black)
-                        
+                        .onChange(of: selectedAge) { oldValue, newValue in
+                            showAgeDisclaimer = ["86-90", "90+"].contains(newValue)
+                        }
                         if showAgeDisclaimer {
                             Text("Please exercise carefully and stop immediately if you feel uncomfortable.")
                                 .font(.footnote)
@@ -171,55 +86,54 @@ struct OnboardingView: View {
                                 .padding(.top, 5)
                                 .lineLimit(nil)
                                 .fixedSize(horizontal: false, vertical: true)
-                                
                         }
+                    }header: {
+                        Text("Please enter your personal information:")
+                            .font(.subheadline)
+                            .textCase(nil)
                     }
-                    .padding(.horizontal, 30)
-                    .padding(.top, 20)
-                    
-                    Button(action: {
-                        // Action for "Continue with Health"
-                    }) {
-                        Text("Submit")
+                    Section {
+                        Button(action: {
+                        }) {
+                            Text("Submit")
+                                .frame(maxWidth: .infinity)
+                            
+                                .foregroundColor(.blue)
+                                .cornerRadius(10)
+                            
+                        }.buttonStyle(BorderlessButtonStyle())
+                        
+                    }footer:{
+                        Text("or")
+                            .font(.subheadline)
+                            .foregroundColor(.gray)
                             .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.gray.opacity(0.2))
-                            .foregroundColor(.blue)
-                            .cornerRadius(10)
-                            .overlay(
-                                RoundedRectangle (cornerRadius: 10)
-                                    .stroke(Color.gray,style: StrokeStyle(lineWidth:1)).opacity(0.3))
+                            .padding(.top,20)
                     }
-                    .padding(.horizontal, 30)
-                    .padding(.top,30)
                     
-                    Text("or")
-                        .font(.subheadline)
-                        .foregroundColor(.gray)
-                        .padding(.top, 20)
-                    
-                    Button(action: {
-                        // Action for "Submit"
-                    }) {
-                        Text("Continue with Health")
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                            .overlay(
-                                RoundedRectangle (cornerRadius: 10)
-                                    .stroke(Color.gray,style: StrokeStyle(lineWidth:1)).opacity(0.3))
+                    Section {
+                        
+                        Button(action: {
+                        }) {
+                            Text("Continue with Health")
+                                .frame(maxWidth: .infinity)
+                                
+                                .foregroundColor(.blue)
+                                .cornerRadius(10)
+                        }.buttonStyle(BorderlessButtonStyle())
+                        
+                        
+                        
                     }
-                    .padding(.horizontal, 30)
-                    .padding(.top, 20)
                     
-                    Spacer()
                 }
+                
+                
+                
+                
+           
             .navigationTitle("Onboarding")
         }
-        
-        
     }
 }
 
