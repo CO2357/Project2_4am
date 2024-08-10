@@ -38,8 +38,8 @@ struct homeView: View {
                 NavigationView{
                     VStack{
                         List{
-                            Text("Blacj")
-                            Text("Ni")
+                            Text("Placeholder")
+                           
                         }
                     }
                     .navigationTitle("Bookmarks")
