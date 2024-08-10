@@ -50,7 +50,6 @@ struct JoggingView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Jogging")
         }
         }
        
