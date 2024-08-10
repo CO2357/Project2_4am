@@ -17,13 +17,27 @@ struct WarmUpView: View {
             ZStack{
                 List {
                     Section(header: Text(" "), footer: Text("Do warm ups before you start exercising")) {
-                        Text("Lunges            Lunges 5 times each leg")
                         
-                        Text("Sidesteps        Step to each side 20 times")
-                        Text("Squats             Bend your legs 15 times")
+                        HStack{
+                            Text("Lunges")
+                            Spacer()
+                            Text("Lunges 5 times each leg")
+                        }
+                        
+                        HStack{
+                            Text("Sidesteps")
+                            Spacer()
+                            Text("Step to each side 20 times")
+                        }
+                        
+                        HStack{
+                            Text("Squats")
+                            Spacer()
+                            Text("Squat down 15 times")
+                        }
                     }
                 }        .navigationTitle("Warm Up")
-
+                
                 NavigationLink(isActive: $done) {
                     Text("Placeholder")
                 } label: {
