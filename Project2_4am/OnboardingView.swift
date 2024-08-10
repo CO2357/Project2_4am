@@ -121,17 +121,9 @@ struct OnboardingView: View {
                                 .foregroundColor(.blue)
                                 .cornerRadius(10)
                         }.buttonStyle(BorderlessButtonStyle())
-                        
-                        
-                        
                     }
                     
                 }
-                
-                
-                
-                
-           
             .navigationTitle("Onboarding")
         }
     }
