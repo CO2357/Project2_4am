@@ -15,20 +15,16 @@ struct RewardsView: View {
         NavigationStack{
             VStack {
                 List {
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Current Points")
-                            Text("Next Reward Points")
-                        }
+                    HStack{
+                        Text("Current Points")
                         Spacer()
-                        VStack(alignment: .trailing) {
-                            Text("\(currentPoints)")
-                            Text("\(nextRewardPoints)")
-                        }
+                        Text("\(currentPoints)")
                     }
-                    .padding()
-                    .cornerRadius(10)
-                    
+                    HStack{
+                        Text("Next Reward")
+                        Spacer()
+                        Text("\(nextRewardPoints)")
+                    }
                     Section{
                         HStack {
                             Text("200 pts")
@@ -59,7 +55,7 @@ struct RewardsView: View {
                         } label: {
                             Text("Redeem all avaliable vouchers")
                         }
-
+                        
                     }
                     
                 }
@@ -67,8 +63,6 @@ struct RewardsView: View {
         }
     }
 }
-struct RewardsView_Previews: PreviewProvider {
-    static var previews: some View {
-        RewardsView()
-    }
+#Preview {
+    RewardsView()
 }
