@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C8BF06D2C670E9C003A3F23 /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8BF06C2C670E9C003A3F23 /* homeView.swift */; };
 		0CE14D8C2C5488380052EF15 /* WarmUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CE14D8B2C5488380052EF15 /* WarmUpView.swift */; };
 		2688A79F2C66FF9700283E47 /* SportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2688A79E2C66FF9700283E47 /* SportView.swift */; };
 		D971EAE12C54D02C00546DC1 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971EAE02C54D02C00546DC1 /* OnboardingView.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C8BF06C2C670E9C003A3F23 /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 		0CE14D8B2C5488380052EF15 /* WarmUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpView.swift; sourceTree = "<group>"; };
 		2688A79E2C66FF9700283E47 /* SportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportView.swift; sourceTree = "<group>"; };
 		D971EAE02C54D02C00546DC1 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				2688A79E2C66FF9700283E47 /* SportView.swift */,
 				D971EAE02C54D02C00546DC1 /* OnboardingView.swift */,
 				0CE14D8B2C5488380052EF15 /* WarmUpView.swift */,
+				0C8BF06C2C670E9C003A3F23 /* homeView.swift */,
 				E3B9863E2C5498FD00EA734C /* RewardsView.swift */,
 				D9FC26D92C4B63D200DED8CD /* Assets.xcassets */,
 				D9FC26DB2C4B63D200DED8CD /* Preview Content */,
@@ -271,6 +274,7 @@
 			files = (
 				0CE14D8C2C5488380052EF15 /* WarmUpView.swift in Sources */,
 				D9FC26D82C4B63D100DED8CD /* ContentView.swift in Sources */,
+				0C8BF06D2C670E9C003A3F23 /* homeView.swift in Sources */,
 				D9FC26D62C4B63D100DED8CD /* Project2_4amApp.swift in Sources */,
 				2688A79F2C66FF9700283E47 /* SportView.swift in Sources */,
 				D971EAE12C54D02C00546DC1 /* OnboardingView.swift in Sources */,
