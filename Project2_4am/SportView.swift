@@ -39,14 +39,16 @@ struct SportView: View {
         NavigationView {
             
             List(filteredSports) { sport in
-                NavigationLink(destination: Text("placeholder")) {
+                NavigationLink {
+                    Text("Placeholder")
+                } label: {
                     HStack {
                         Text(sport.name)
                         Spacer()
                         Text(sport.points)
                     }
-
                 }
+                
             }
             .navigationTitle("Sports")
             .searchable(text: $searchText, prompt: "Search for a sport")
