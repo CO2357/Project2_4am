@@ -42,7 +42,7 @@ struct SportView: View {
                 NavigationLink {
                     if(sport.name == "Jogging"){
                         JoggingView()
-                            .navigationTitle("Jogging")
+                            
                            
                     }
                 } label: {
