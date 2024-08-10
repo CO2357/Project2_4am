@@ -15,7 +15,6 @@ struct BriskWalkView: View {
         
         
         
-        NavigationStack{
             List{
                 HStack {
                     Text("2.5 km")
@@ -56,7 +55,8 @@ struct BriskWalkView: View {
                 }
                 .padding()
             }
-        }
+            .navigationTitle("Brisk Walk")
+        
         .sheet(isPresented: $warmUpSheet, content: {
             WarmUpView()
         })
