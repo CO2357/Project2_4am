@@ -24,6 +24,9 @@ struct ContentView: View {
                 .tabItem {
                     Label("Rewards", systemImage: "gift")
                 }
+                .onAppear {
+                    manager.fetchTodaySteps()
+                }
         }
     }
 }
