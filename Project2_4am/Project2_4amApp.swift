@@ -13,6 +13,8 @@ struct Project2_4amApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(manager)
+
         }
     }
 }
