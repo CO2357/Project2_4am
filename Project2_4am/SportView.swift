@@ -6,8 +6,11 @@
 //
 
 import SwiftUI
-//searchbar insert
+
 struct SportView: View {
+    
+    @State private var searchText = ""
+    
     struct Sport: Identifiable {
         let id = UUID()
         let name: String
@@ -23,11 +26,20 @@ struct SportView: View {
         Sport(name: "Hiking", points: "60"),
         Sport(name: "Warm up", points: "10")
     ]
-
+    
+    var filteredSports: [Sport] {
+            if searchText.isEmpty {
+                return sports
+            } else {
+                return sports.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+            }
+        }
+    
     var body: some View {
         NavigationView {
-            List(sports) { sport in
-                NavigationLink(destination: Text("(sport.name)")) {
+            
+            List(filteredSports) { sport in
+                NavigationLink(destination: Text("placeholder")) {
                     HStack {
                         Text(sport.name)
                         Spacer()
@@ -37,6 +49,7 @@ struct SportView: View {
                 }
             }
             .navigationTitle("Sports")
+            .searchable(text: $searchText, prompt: "Search for a sport")
 
 
         }
