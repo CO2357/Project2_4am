@@ -40,7 +40,11 @@ struct SportView: View {
             
             List(filteredSports) { sport in
                 NavigationLink {
-                    Text("Placeholder")
+                    if(sport.name == "Jogging"){
+                        JoggingView()
+                            .navigationTitle("Jogging")
+                           
+                    }
                 } label: {
                     HStack {
                         Text(sport.name)
