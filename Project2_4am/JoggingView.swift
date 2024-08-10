@@ -8,10 +8,15 @@
 import SwiftUI
 
 struct JoggingView: View {
+    
+    @State private var warmUpSheet = false
+    
+    
     var body: some View {
         
         
         
+        NavigationStack{
             List{
                 HStack {
                     Text("2.5 km")
@@ -41,7 +46,7 @@ struct JoggingView: View {
                 }
                 Section{
                     Button("Warm Up") {
-                        // Handle warm-up action
+                        warmUpSheet = true
                     }
                     Button("Start Activity") {
                         // Handle start activity action
@@ -49,7 +54,10 @@ struct JoggingView: View {
                 }
                 .padding()
             }
-            .navigationTitle("Jogging")
+        }
+        .sheet(isPresented: $warmUpSheet, content: {
+            WarmUpView()
+        })
         }
        
         
