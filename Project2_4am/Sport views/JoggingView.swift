@@ -1,5 +1,5 @@
 //
-//  BriskWalkView.swift
+//  OthersView.swift
 //  Project2_4am
 //
 //  Created by Andrew Tan Li-Onn on 10/8/24.
@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct BriskWalkView: View {
+struct JoggingView: View {
     
     @State private var warmUpSheet = false
+    
     
     var body: some View {
         
         
         
-        NavigationStack{
+        
             List{
                 HStack {
                     Text("2.5 km")
@@ -44,19 +45,17 @@ struct BriskWalkView: View {
                     
                 }
                 Section{
-                    Button {
+                    Button("Warm Up") {
                         warmUpSheet = true
-                    } label: {
-                        Text("Warm up")
                     }
-                    
                     Button("Start Activity") {
                         // Handle start activity action
                     }
                 }
                 .padding()
             }
-        }
+            .navigationTitle("Jogging")
+        
         .sheet(isPresented: $warmUpSheet, content: {
             WarmUpView()
         })
@@ -66,9 +65,12 @@ struct BriskWalkView: View {
     }
 
 
-#Preview {
-    BriskWalkView()
+struct JoggingView_Previews: PreviewProvider {
+    static var previews: some View {
+        JoggingView()
+    }
 }
 
-
-
+#Preview {
+    JoggingView()
+}
