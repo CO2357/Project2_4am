@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var manager: HealthManager
     var body: some View {
         TabView{
-            homeView(progress: 0.6)
+            homeView(progress: circlees)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
