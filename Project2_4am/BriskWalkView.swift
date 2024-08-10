@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BriskView: View {
+struct BriskWalkView: View {
     
     @State private var warmUpSheet = false
     
@@ -67,7 +67,7 @@ struct BriskView: View {
 
 
 #Preview {
-    BriskView()
+    BriskWalkView()
 }
 
 

@@ -42,8 +42,10 @@ struct SportView: View {
                 NavigationLink {
                     if(sport.name == "Jogging"){
                         JoggingView()
-                            
-                           
+                            .navigationTitle("Jogging")
+                    } else if (sport.name == "Brisk Walk"){
+                        BriskWalkView()
+                            .navigationTitle("Brisk Walk")
                     }
                 } label: {
                     HStack {
