@@ -11,6 +11,7 @@ import SwiftUI
 struct WarmUpView: View {
     
     @State private var done = false
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         
@@ -39,10 +40,10 @@ struct WarmUpView: View {
                     }
                 }        .navigationTitle("Warm Up")
                 
-                NavigationLink(isActive: $done) {
-                    Text("Placeholder")
+                Button{
+                    dismiss()
                 } label: {
-                    Text("Start Activity")
+                    Text("Done with Warmup")
                         .padding()
                         .background(Color(.blue))
                         .foregroundColor(.white)
@@ -59,3 +60,5 @@ struct WarmUpView: View {
 #Preview {
     WarmUpView()
 }
+
+
