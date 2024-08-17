@@ -10,6 +10,8 @@ import SwiftUI
 
 struct homeView: View {
     
+    @EnvironmentObject var manager: HealthManager
+    
     let progress: Double
     
     var body: some View {
@@ -32,6 +34,14 @@ struct homeView: View {
                         )
                         .rotationEffect(.degrees(-90))
                         .animation(.easeOut, value: progress)
+                    
+                    VStack{
+                        Text("Step Goal")
+                            .font(.title)
+                            .padding()
+                        Text("\(manager.todaysSteps) / 2000 ")
+                            .font(.title)
+                    }
                 }
                 .padding(30)
                 NavigationView{
