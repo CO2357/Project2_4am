@@ -14,64 +14,59 @@ struct BriskWalkView: View {
     
     var body: some View {
         
-            VStack{
-                List{
-                    HStack {
-                        Text("2.5 km")
-                            .font(.headline)
-                        Spacer()
-                        Text("Change >")
-                            .foregroundColor(.blue)
+        
+        
+            List{
+                HStack {
+                    Text("2.5 km")
+                        .font(.headline)
+                    Spacer()
+                    Text("Change >")
+                        .foregroundColor(.blue)
+                }
+                HStack {
+                    Text("20 min")
+                        .font(.headline)
+                    Spacer()
+                    Text("Change >")
+                        .foregroundColor(.blue)
+                }
+                Text("Moderate Intensity")
+                    .font(.subheadline)
+                Text("50 points")
+                    .font(.subheadline)
+                
+                Section{
+                    HStack{
+                        Text("You can do this anywhere, the gym, the track or the park.")
+                            .multilineTextAlignment(.center)
                     }
-                    HStack {
-                        Text("20 min")
-                            .font(.headline)
-                        Spacer()
-                        Text("Change >")
-                            .foregroundColor(.blue)
-                    }
-                    Text("Moderate Intensity")
-                        .font(.subheadline)
-                    Text("50 points")
-                        .font(.subheadline)
                     
-                    Section{
-                        HStack{
-                            Text("You can do this anywhere, the gym, the track or the park.")
-                                .multilineTextAlignment(.center)
-                        }
-                        
+                }
+                Section{
+                    Button {
+                        warmUpSheet = true
+                    } label: {
+                        Text("Warm up")
                     }
-                    Section{
-                        Button {
-                            warmUpSheet = true
-                        } label: {
-                            Text("Warm up")
-                        }
-                        
-                        Button("Start Activity") {
-                            progress = true
-                        }
+                    
+                    Button("Start Activity") {
+                        progress = true
                     }
                 }
-                .sheet(isPresented: $warmUpSheet, content: {
-                    WarmUpView()
-                })
-                .fullScreenCover(isPresented: $progress) {
-                    JoggingProgressView()
-                }
-                
-                
-            
+            }
+            .sheet(isPresented: $warmUpSheet, content: {
+                WarmUpView()
+            })
+            .fullScreenCover(isPresented: $progress) {
+                JoggingProgressView()
+            }
         }
         
     }
+#Preview {
+    BriskWalkView()
 }
-  
-            #Preview {
-                BriskWalkView()
-            }
-            
-            
-            
-    
+
+
+
