@@ -10,6 +10,7 @@ import SwiftUI
 struct BriskWalkView: View {
     
     @State private var warmUpSheet = false
+    @State private var progress = false
     
     var body: some View {
         
@@ -50,22 +51,19 @@ struct BriskWalkView: View {
                     }
                     
                     Button("Start Activity") {
-                        // Handle start activity action
+                        progress = true
                     }
                 }
-                .padding()
             }
-            .navigationTitle("Brisk Walk")
-        
-        .sheet(isPresented: $warmUpSheet, content: {
-            WarmUpView()
-        })
+            .sheet(isPresented: $warmUpSheet, content: {
+                WarmUpView()
+            })
+            .fullScreenCover(isPresented: $progress) {
+                JoggingProgressView()
+            }
         }
-       
         
     }
-
-
 #Preview {
     BriskWalkView()
 }

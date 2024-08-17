@@ -10,6 +10,7 @@ import SwiftUI
 struct JoggingProgressView: View {
     @State private var progress: CGFloat = 0.625 // Progress value (e.g., 1.5km of 2.4km)
     @State private var time = "09:21"
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         VStack {
@@ -51,12 +52,16 @@ struct JoggingProgressView: View {
             Button(action: {
                 // Handle Stop action here
             }) {
-                Text("Stop")
-                    .font(.title2)
-                    .foregroundColor(.white)
-                    .frame(width: 200, height: 50)
-                    .background(Color.red)
-                    .cornerRadius(10)
+                Button(action: {
+                    dismiss()
+                }, label: {
+                    Text("Stop")
+                        .font(.title2)
+                        .foregroundColor(.white)
+                        .frame(width: 200, height: 50)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                })
             }
             .padding(.bottom, 50)
         }
@@ -69,4 +74,7 @@ struct JoggingProgressView_Previews: PreviewProvider {
     static var previews: some View {
         JoggingProgressView()
     }
+}
+#Preview {
+    JoggingProgressView()
 }
