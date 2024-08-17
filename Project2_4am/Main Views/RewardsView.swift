@@ -29,12 +29,12 @@ struct RewardsView: View {
                         HStack {
                             Text("200 pts")
                             Spacer()
-                            Text("Voucher of $2 (redemmed)")
+                            Text("Voucher of $2 (redeemed)")
                         }
                         HStack {
                             Text("500 pts")
                             Spacer()
-                            Text("Voucher of $2.50 (not redemmed)")
+                            Text("Voucher of $2.50 (not redeemed)")
                         }
                         HStack {
                             Text("750 pts")
@@ -51,7 +51,7 @@ struct RewardsView: View {
                     
                     Section{
                         Button {
-                            //code
+                            
                         } label: {
                             Text("Redeem all avaliable vouchers")
                         }
