@@ -10,8 +10,8 @@ import SwiftUI
 struct JoggingView: View {
     
     @State private var warmUpSheet = false
-        @State private var selectedDistance = 0
-            let distanceOptions = [0.5, 0.75,1.0,1.25,1.5,1.75,2.0,2.25,2.5,2.75,3.0]
+    @State private var selectedDistance: Double = 0.0
+            let distanceOptions: [Double] = [0.5, 0.75,1.0,1.25,1.5,1.75,2.0,2.25,2.5,2.75,3.0]
         @State private var selectedTime = 0
             let timeOptions = [5,10,15,20,25,30,35]
         @State private var bookmarked = false
@@ -26,6 +26,8 @@ struct JoggingView: View {
                 Picker("Distance/ km", selection: $selectedDistance) {
                     ForEach(distanceOptions, id: \.self) {option in
                         Text(String(format: "%.2f",option))
+                            .tag("\(option)")
+                            .id("\(option)")
                     }
                 }
                 Picker("Time/ minutes", selection: $selectedTime) {

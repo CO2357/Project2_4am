@@ -11,8 +11,8 @@ struct BriskWalkView: View {
     
     @State private var warmUpSheet = false
     @State private var progress = false
-    @State private var selectedDistance = 0
-    let distanceOptions = [1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0]
+    @State private var selectedDistance: Double = 0.0
+            let distanceOptions: [Double] = [1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0]
     @State private var selectedTime = 0
         let timeOptions = [15,25,35,45,55,65,75,85,95]
     
@@ -24,6 +24,8 @@ struct BriskWalkView: View {
                 Picker("Distance/ km", selection: $selectedDistance) {
                     ForEach(distanceOptions, id: \.self) {option in
                         Text(String(format: "%.2f",option))
+                            .tag("\(option)")
+                            .id("\(option)")
                     }
                 }
                 Picker("Time/ minutes", selection: $selectedTime) {
