@@ -10,65 +10,59 @@ import SwiftUI
 struct JoggingView: View {
     
     @State private var warmUpSheet = false
-    @State private var selectedDistance = ""
-    @State private var bookmarked = false
-    @State private var progress = false
-    
-    let distanceOptions = ["0.5km", "0.75km","1.0km","1.25km","1.5km","1.75km","2.0km","2.25km","2.5km","2.75km","3.0km"]
+        @State private var selectedDistance = 0
+            let distanceOptions = [0.5, 0.75,1.0,1.25,1.5,1.75,2.0,2.25,2.5,2.75,3.0]
+        @State private var selectedTime = 0
+            let timeOptions = [5,10,15,20,25,30,35]
+        @State private var bookmarked = false
+        @State private var progress = false
+
     
     
     
     var body: some View {
-        NavigationStack{
-            VStack{
-                List{
-                    HStack {
-                        Text("2.5 km")
-                            .font(.headline)
-                        Spacer()
-                        Text("Change >")
-                            .foregroundColor(.blue)
+        
+            List{
+                Picker("Distance/ km", selection: $selectedDistance) {
+                    ForEach(distanceOptions, id: \.self) {option in
+                        Text(String(format: "%.2f",option))
                     }
-                    HStack {
-                        Text("20 min")
-                            .font(.headline)
-                        Spacer()
-                        Text("Change >")
-                            .foregroundColor(.blue)
+                }
+                Picker("Time/ minutes", selection: $selectedTime) {
+                    ForEach(timeOptions, id: \.self) {option in
+                        Text("\(option)")
                     }
-                    Text("Moderate Intensity")
-                        .font(.subheadline)
-                    Text("50 points")
-                        .font(.subheadline)
-                    
-                    Section{
-                        HStack{
-                            Text("You can do this anywhere, the gym, the track or the park.")
-                                .multilineTextAlignment(.center)
-                        }
-                        
-                    }
-                    Section{
-                        Button("Warm Up") {
-                            warmUpSheet = true
-                        }
-                        Button("Start Activity") {
-                            progress = true
-                        }
-                        
+                }
+                Text("Moderate Intensity")
+                    .font(.headline)
+                Text("50 points")
+                    .font(.headline)
+                
+                Section{
+                    HStack{
+                        Text("You can do this anywhere, the gym, the track or the park.")
+                            .multilineTextAlignment(.center)
                     }
                     
                 }
-                
-                .sheet(isPresented: $warmUpSheet, content: {
-                    WarmUpView()
-                })
-                .fullScreenCover(isPresented: $progress) {
-                    JoggingProgressView()
+                Section{
+                    Button("Warm Up") {
+                        warmUpSheet = true
+                    }
+                    Button("Start Activity") {
+                        progress = true
+                    }
+                    
                 }
                 
             }
-            .navigationTitle("Jogging")
+            
+            .sheet(isPresented: $warmUpSheet, content: {
+                WarmUpView()
+            })
+            .fullScreenCover(isPresented: $progress) {
+                JoggingProgressView()
+            
         }
     }
       

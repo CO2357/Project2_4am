@@ -13,7 +13,7 @@ struct BriskWalkView: View {
     @State private var progress = false
     
     var body: some View {
-        NavigationStack{
+        
             VStack{
                 List{
                     HStack {
@@ -62,8 +62,6 @@ struct BriskWalkView: View {
                 }
                 
                 
-            }
-            .navigationTitle("Brisk Walk")
             
         }
         
