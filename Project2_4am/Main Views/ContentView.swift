@@ -11,7 +11,7 @@ struct ContentView: View {
     @EnvironmentObject var manager: HealthManager
     var body: some View {
         TabView{
-            homeView(progress: circlees)
+            homeView(progress: Double(manager.todaysSteps) / 2000)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }

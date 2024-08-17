@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct Project2_4amApp: App {
-    @StateObject var manager = HealthManager ()
+    @StateObject var manager = HealthManager()
     var body: some Scene {
         WindowGroup {
             ContentView()

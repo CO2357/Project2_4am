@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-var circlees: Double = 0.7
 
 struct homeView: View {
-
+    
     let progress: Double
-
+    
     var body: some View {
         NavigationView { // Wrap your view in a NavigationView
             VStack{
@@ -39,11 +38,11 @@ struct homeView: View {
                     VStack{
                         List{
                             Text("Placeholder")
-                           
+                            
                         }
                     }
                     .navigationTitle("Bookmarks")
-
+                    
                 }
             }
             .navigationTitle("Home") // Now this should work
@@ -52,4 +51,4 @@ struct homeView: View {
 }
 
 #Preview{
-    homeView(progress: circlees) }
+    homeView(progress: 0.7) }

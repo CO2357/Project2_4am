@@ -7,8 +7,13 @@ extension Date {
     }
 }
 
+
+
 class HealthManager: ObservableObject {
     let healthStore = HKHealthStore()
+    
+    @Published var todaysSteps = 0
+    
     
     init() {
         let steps = HKQuantityType(.stepCount)
@@ -22,7 +27,10 @@ class HealthManager: ObservableObject {
                 print("errror fetching health data")
             }
         }
+        
+        self.fetchTodaySteps()
     }
+    
     func fetchTodaySteps() {
         let steps = HKQuantityType(.stepCount)
         let predicate = HKQuery.predicateForSamples(withStart: .startOfDay, end: Date())
@@ -32,7 +40,7 @@ class HealthManager: ObservableObject {
                 return
             }
             let stepCount = quantity.doubleValue(for: .count())
-            print(stepCount)
+            self.todaysSteps = Int(stepCount)
         }
         healthStore.execute(query)
     }
