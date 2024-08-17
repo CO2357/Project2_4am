@@ -10,7 +10,8 @@ import SwiftUI
 struct JoggingView: View {
     
     @State private var warmUpSheet = false
-    
+    @State private var selectedDistance = ""
+        let distanceOptions = ["0.5km", "0.75km","1.0km","1.25km","1.5km","1.75km","2.0km","2.25km","2.5km","2.75km","3.0km"]
     
     var body: some View {
         
