@@ -10,6 +10,15 @@ import SwiftUI
 
 struct homeView: View {
     
+    struct bookmarkedSport: Identifiable {
+        let id = UUID()
+        let name: String
+        let points: String
+    }
+    let sport = [
+        bookmarkedSport(name: "Brisk Walk", points: "50 to 100"),
+        bookmarkedSport(name: "Jogging", points: "80 to 150")]
+    
     @EnvironmentObject var manager: HealthManager
     
     let progress: Double
@@ -45,18 +54,31 @@ struct homeView: View {
                 }
                 .padding(30)
                 NavigationView{
-                    VStack{
-                        List{
-                            Text("Placeholder")
-                            
-                        }
-                    }
-                    .navigationTitle("Bookmarks")
                     
+                    List(sport) { sport in
+                        NavigationLink {
+                            if(sport.name == "Jogging"){
+                                JoggingView()
+                                    .navigationTitle("Jogging")
+                                
+                            } else if (sport.name == "Brisk Walk"){
+                                BriskWalkView()
+                                    .navigationTitle("Brisk Walk")
+                                
+                            }
+                        } label: {
+                            HStack {
+                                Text(sport.name)
+                                Spacer()
+                                Text(sport.points)
+                            }
+                        }
+                    }.navigationTitle("Bookmarks")
                 }
-            }
-            .navigationTitle("Home") // Now this should work
+                
+            }.navigationTitle("Home") // Now this should work
         }
+        
     }
 }
 
