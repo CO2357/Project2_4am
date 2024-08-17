@@ -53,7 +53,6 @@ struct JoggingView: View {
                         // Handle start activity action
                     }
                 }
-                .padding()
             }
             .navigationTitle("Jogging")
         
