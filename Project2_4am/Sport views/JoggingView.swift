@@ -19,54 +19,61 @@ struct JoggingView: View {
     
     
     var body: some View {
-        
-        
-        List{
-            HStack {
-                Text("2.5 km")
-                    .font(.headline)
-                Spacer()
-                Text("Change >")
-                    .foregroundColor(.blue)
-            }
-            HStack {
-                Text("20 min")
-                    .font(.headline)
-                Spacer()
-                Text("Change >")
-                    .foregroundColor(.blue)
-            }
-            Text("Moderate Intensity")
-                .font(.subheadline)
-            Text("50 points")
-                .font(.subheadline)
-            
-            Section{
-                HStack{
-                    Text("You can do this anywhere, the gym, the track or the park.")
-                        .multilineTextAlignment(.center)
+        NavigationStack{
+            VStack{
+                List{
+                    HStack {
+                        Text("2.5 km")
+                            .font(.headline)
+                        Spacer()
+                        Text("Change >")
+                            .foregroundColor(.blue)
+                    }
+                    HStack {
+                        Text("20 min")
+                            .font(.headline)
+                        Spacer()
+                        Text("Change >")
+                            .foregroundColor(.blue)
+                    }
+                    Text("Moderate Intensity")
+                        .font(.subheadline)
+                    Text("50 points")
+                        .font(.subheadline)
+                    
+                    Section{
+                        HStack{
+                            Text("You can do this anywhere, the gym, the track or the park.")
+                                .multilineTextAlignment(.center)
+                        }
+                        
+                    }
+                    Section{
+                        Button("Warm Up") {
+                            warmUpSheet = true
+                        }
+                        Button("Start Activity") {
+                            progress = true
+                        }
+                        
+                    }
+                    
+                }
+                
+                .sheet(isPresented: $warmUpSheet, content: {
+                    WarmUpView()
+                })
+                .fullScreenCover(isPresented: $progress) {
+                    JoggingProgressView()
                 }
                 
             }
-            Section{
-                Button("Warm Up") {
-                    warmUpSheet = true
-                }
-                Button("Start Activity") {
-                    progress = true
-                }
-            }
+            .navigationTitle("Jogging")
         }
-        .sheet(isPresented: $warmUpSheet, content: {
-            WarmUpView()
-        })
-        .fullScreenCover(isPresented: $progress) {
-            JoggingProgressView()
-        }
-        .navigationTitle("Jogging")
     }
-    
+      
 }
+
 
 #Preview {
     JoggingView()

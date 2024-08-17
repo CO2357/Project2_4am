@@ -13,60 +13,67 @@ struct BriskWalkView: View {
     @State private var progress = false
     
     var body: some View {
-        
-        
-        
-            List{
-                HStack {
-                    Text("2.5 km")
-                        .font(.headline)
-                    Spacer()
-                    Text("Change >")
-                        .foregroundColor(.blue)
+        NavigationStack{
+            VStack{
+                List{
+                    HStack {
+                        Text("2.5 km")
+                            .font(.headline)
+                        Spacer()
+                        Text("Change >")
+                            .foregroundColor(.blue)
+                    }
+                    HStack {
+                        Text("20 min")
+                            .font(.headline)
+                        Spacer()
+                        Text("Change >")
+                            .foregroundColor(.blue)
+                    }
+                    Text("Moderate Intensity")
+                        .font(.subheadline)
+                    Text("50 points")
+                        .font(.subheadline)
+                    
+                    Section{
+                        HStack{
+                            Text("You can do this anywhere, the gym, the track or the park.")
+                                .multilineTextAlignment(.center)
+                        }
+                        
+                    }
+                    Section{
+                        Button {
+                            warmUpSheet = true
+                        } label: {
+                            Text("Warm up")
+                        }
+                        
+                        Button("Start Activity") {
+                            progress = true
+                        }
+                    }
                 }
-                HStack {
-                    Text("20 min")
-                        .font(.headline)
-                    Spacer()
-                    Text("Change >")
-                        .foregroundColor(.blue)
+                .sheet(isPresented: $warmUpSheet, content: {
+                    WarmUpView()
+                })
+                .fullScreenCover(isPresented: $progress) {
+                    JoggingProgressView()
                 }
-                Text("Moderate Intensity")
-                    .font(.subheadline)
-                Text("50 points")
-                    .font(.subheadline)
                 
-                Section{
-                    HStack{
-                        Text("You can do this anywhere, the gym, the track or the park.")
-                            .multilineTextAlignment(.center)
-                    }
-                    
-                }
-                Section{
-                    Button {
-                        warmUpSheet = true
-                    } label: {
-                        Text("Warm up")
-                    }
-                    
-                    Button("Start Activity") {
-                        progress = true
-                    }
-                }
+                
             }
-            .sheet(isPresented: $warmUpSheet, content: {
-                WarmUpView()
-            })
-            .fullScreenCover(isPresented: $progress) {
-                JoggingProgressView()
-            }
+            .navigationTitle("Brisk Walk")
+            
         }
         
     }
-#Preview {
-    BriskWalkView()
 }
-
-
-
+  
+            #Preview {
+                BriskWalkView()
+            }
+            
+            
+            
+    
