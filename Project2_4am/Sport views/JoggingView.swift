@@ -63,6 +63,7 @@ struct JoggingView: View {
         .fullScreenCover(isPresented: $progress) {
             JoggingProgressView()
         }
+        .navigationTitle("Jogging")
     }
     
 }

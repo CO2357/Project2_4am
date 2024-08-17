@@ -14,7 +14,7 @@ struct JoggingProgressView: View {
     
     var body: some View {
         VStack {
-            Text("Jogging in progress")
+            Text("Activity in progress")
                 .font(.largeTitle)
                 .bold()
                 .padding(.top, 50)
